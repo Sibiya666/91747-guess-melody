@@ -1,54 +1,47 @@
-let templatesApp = document.querySelector(`#templates`);
-let screenGenre = templatesApp.content.querySelector(`.main--level-genre`);
-let screenResult = templatesApp.content.querySelector(`.main--result`);
-let screenLevelArtist = templatesApp.content.querySelector(`.main--level-artist`);
-let screenWelcome = templatesApp.content.querySelector(`.main--welcome`);
-let sectionMain = document.querySelector(`.main`);
+const templatesApp = document.querySelector(`#templates`);
+const screenGenre = templatesApp.content.querySelector(`.main--level-genre`);
+const screenResult = templatesApp.content.querySelector(`.main--result`);
+const screenLevelArtist = templatesApp.content.querySelector(`.main--level-artist`);
+const screenWelcome = templatesApp.content.querySelector(`.main--welcome`);
+const sectionMain = document.querySelector(`.main`);
 let currentScreen = 0;
-const screenList = [screenWelcome, screenLevelArtist, screenGenre, screenResult];
-const startPointArray = 0;
-const lastPointArray = -1;
+const SCREEN_LIST = [screenWelcome, screenLevelArtist, screenGenre, screenResult];
 const keyCodeList = {
-  leftArrow: 37,
-  rightArrow: 39,
-  altKey: 18
+  LEFT_ARROW: 37,
+  RIGHT_ARROW: 39,
 };
 
-let renderScreen = (numberScreen) =>
-  sectionMain.appendChild(screenList[numberScreen]);
+const renderScreen = (numberScreen) =>
+  sectionMain.appendChild(SCREEN_LIST[numberScreen]);
 
-//Написал функцию для проверки на Alt и ->,
-//но она не работает, если подставлять в условие.
-// В  чем моя ошибка?
 
-let  z = (event) => {
-  event.altKey && event.keyCode === keyCodeList.rightArrow &&
-  currentScreen < screenList.length - lastPointArray;
+const isNextScreen = (event) => {
+  return event.altKey && event.keyCode === keyCodeList.RIGHT_ARROW &&
+  currentScreen < SCREEN_LIST.length - 1;
 };
 
-let  b = (event) => {
-  event.altKey && event.keyCode === keyCodeList.leftArrow &&
+const isPreviousScreen = (event) => {
+  return event.altKey && event.keyCode === keyCodeList.LEFT_ARROW &&
   currentScreen > 0;
 };
 
-let nextScreen = () => {
+const nextScreen = () => {
   sectionMain.removeChild(sectionMain.firstChild);
   renderScreen(++currentScreen);
 };
 
-let previousScreen = () => {
+const previousScreen = () => {
   sectionMain.removeChild(sectionMain.firstChild);
   renderScreen(--currentScreen);
 };
 
-let onDocumentKeyDown = (event) => {
-  if (event.altKey && event.keyCode === keyCodeList.rightArrow &&
-    currentScreen < screenList.length - lastPointArray) {
+const onDocumentKeyDown = (event) => {
+
+  if (isNextScreen(event)) {
     nextScreen();
   }
 
-  if (event.altKey && event.keyCode === keyCodeList.leftArrow &&
-    currentScreen > startPointArray) {
+  if (isPreviousScreen(event)) {
     previousScreen();
   }
 };
