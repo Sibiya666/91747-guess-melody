@@ -5,43 +5,71 @@ const screenLevelArtist = templatesApp.content.querySelector(`.main--level-artis
 const screenWelcome = templatesApp.content.querySelector(`.main--welcome`);
 const sectionMain = document.querySelector(`.main`);
 let currentScreen = 0;
+
+/**
+ * @readonly
+ * @enum {HTML.element}
+ */
 const SCREEN_LIST = [screenWelcome, screenLevelArtist, screenGenre, screenResult];
-const keyCodeList = {
+
+/**
+ * @readonly
+ * @enum {number}
+ */
+const KEY_CODE_LIST = {
   LEFT_ARROW: 37,
   RIGHT_ARROW: 39,
 };
 
-const renderScreen = (numberScreen) =>
+/**
+ * Render screen.
+ * @param {number} numberScreen
+ */
+const renderScreen = (numberScreen) => {
+  sectionMain.innerHTML = ``;
   sectionMain.appendChild(SCREEN_LIST[numberScreen]);
 
+};
 
-const isNextScreen = (event) => {
-  return event.altKey && event.keyCode === keyCodeList.RIGHT_ARROW &&
+/**
+ * Keyboard event check.
+ * @param {KeyboardEvent} event
+ * @return {boolean}
+ */
+const hasNextScreen = (event) => {
+  return event.altKey && event.keyCode === KEY_CODE_LIST.RIGHT_ARROW &&
   currentScreen < SCREEN_LIST.length - 1;
 };
 
-const isPreviousScreen = (event) => {
-  return event.altKey && event.keyCode === keyCodeList.LEFT_ARROW &&
+/**
+ * Keyboard event check.
+ * @param {KeyboardEvent} event
+ * @return {boolean}
+ */
+const hasPreviousScreen = (event) => {
+  return event.altKey && event.keyCode === KEY_CODE_LIST.LEFT_ARROW &&
   currentScreen > 0;
 };
 
 const nextScreen = () => {
-  sectionMain.removeChild(sectionMain.firstChild);
   renderScreen(++currentScreen);
 };
 
 const previousScreen = () => {
-  sectionMain.removeChild(sectionMain.firstChild);
   renderScreen(--currentScreen);
 };
 
+/**
+ * Keyboard event listener.
+ * @param {KeyboardEvent} event
+ */
 const onDocumentKeyDown = (event) => {
 
-  if (isNextScreen(event)) {
+  if (hasNextScreen(event)) {
     nextScreen();
   }
 
-  if (isPreviousScreen(event)) {
+  if (hasPreviousScreen(event)) {
     previousScreen();
   }
 };
