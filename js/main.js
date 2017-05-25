@@ -7,13 +7,13 @@ const sectionMain = document.querySelector(`.main`);
 let currentScreen = 0;
 
 /**
- * @readonly
+ * @constant
  * @enum {HTML.element}
  */
 const SCREEN_LIST = [screenWelcome, screenLevelArtist, screenGenre, screenResult];
 
 /**
- * @readonly
+ * @constant
  * @enum {number}
  */
 const KEY_CODE_LIST = {
