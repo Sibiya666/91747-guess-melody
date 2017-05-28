@@ -2,7 +2,7 @@ import serviceRender from '../service/service-render';
 import loadScreenResultLoser from './result-loser';
 import loadScreenResultWinner from './result-winner';
 /**
- * Array<number>
+ * @type Array<number>
  */
 const listGenres = [1, 2, 3, 4];
 const template = `
@@ -29,11 +29,7 @@ const answerSend = screenGenre.querySelector(`.genre-answer-send`);
  * @param {Array<number>} array
  */
 const toggleSubmit = (array) => {
-  if (array.length > 0) {
-    answerSend.disabled = false;
-  } else {
-    answerSend.disabled = true;
-  }
+  answerSend.disabled = !array.length > 0;
 };
 
 answerSend.disabled = true;

@@ -1,7 +1,7 @@
 import serviceRender from '../service/service-render';
 import loadScreenGenre from './level-genre';
 /**
- * Array<string>
+ * @type Array<string>
  */
 const listArtists = [`Пелагея`, `Краснознаменная дивизия имени моей бабушки`,
   `Lorde`];
