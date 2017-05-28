@@ -1,5 +1,5 @@
-import service from '../service/services';
-import artistsScreenLoad from './level-artist';
+import serviceRender from '../service/service-render';
+import loadArtistScreen from './level-artist';
 
 const template = `
           <section class="main main--welcome">
@@ -13,11 +13,14 @@ const template = `
             </p>
           </section>
     `;
-const welcomeScreen = service.createElement(template);
-const play = welcomeScreen.querySelector(`.main-play`);
-const welcomeScreenLoad = () => service.renderScreen(welcomeScreen);
+const screenWelcome = serviceRender.createElement(template);
+const play = screenWelcome.querySelector(`.main-play`);
+const loadScreenWelcome = () => serviceRender.renderScreen(screenWelcome);
 
-// я чет не могу пристроить удаление этих listener
-play.addEventListener(`click`, (event) => artistsScreenLoad());
+/**
+ * Event listener.
+ * @param {MouseEvent} event
+ */
+play.addEventListener(`click`, (event) => loadArtistScreen());
 
-export default welcomeScreenLoad;
+export default loadScreenWelcome;

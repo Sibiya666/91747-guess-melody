@@ -1,4 +1,4 @@
-import welcomeScreenLoad from './controllers/welcome';
+import loadScreenWelcome from './controllers/welcome';
 
-welcomeScreenLoad();
+loadScreenWelcome();
 

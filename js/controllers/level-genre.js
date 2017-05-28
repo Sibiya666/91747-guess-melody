@@ -1,44 +1,34 @@
-import service from '../service/services';
-import resultCtr from './result';
-
+import serviceRender from '../service/service-render';
+import loadScreenResultLoser from './result-loser';
+import loadScreenResultWinner from './result-winner';
+/**
+ * Array<number>
+ */
+const listGenres = [1, 2, 3, 4];
 const template = `
           <section class="main main--level main--level-genre">
               <h2 class="title">Выберите инди-рок треки</h2>
               <form class="genre">
-                <div class="genre-answer">
+                          
+                ${listGenres.map((item) => `
+                 <div class="genre-answer">
                   <div class="player-wrapper"></div>
-                  <input type="checkbox" name="answer" value="answer-1" id="a-1">
-                  <label class="genre-answer-check" for="a-1"></label>
-                </div>
-          
-                <div class="genre-answer">
-                  <div class="player-wrapper"></div>
-                  <input type="checkbox" name="answer" value="answer-1" id="a-2">
-                  <label class="genre-answer-check" for="a-2"></label>
-                </div>
-          
-                <div class="genre-answer">
-                  <div class="player-wrapper"></div>
-                  <input type="checkbox" name="answer" value="answer-1" id="a-3">
-                  <label class="genre-answer-check" for="a-3"></label>
-                </div>
-          
-                <div class="genre-answer">
-                  <div class="player-wrapper"></div>
-                  <input type="checkbox" name="answer" value="answer-1" id="a-4">
-                  <label class="genre-answer-check" for="a-4"></label>
-                </div>
-          
+                  <input type="checkbox" name="answer" value="answer-${item}" id="a-${item}">
+                  <label class="genre-answer-check" for="a-${item}"></label>
+                </div>`)}
+
                 <button class="genre-answer-send" type="submit">Ответить</button>
               </form>
         </section>
     `;
-const genreScreen = service.createElement(template);
-const formGenre = genreScreen.querySelector(`.genre`);
+const screenGenre = serviceRender.createElement(template);
+const formGenre = screenGenre.querySelector(`.genre`);
 const genreInputs = formGenre.querySelectorAll(`input[type="checkbox"]`);
-const answerSend = genreScreen.querySelector(`.genre-answer-send`);
-
-const toggleConditionAnswerSend = (array) => {
+const answerSend = screenGenre.querySelector(`.genre-answer-send`);
+/**
+ * @param {Array<number>} array
+ */
+const toggleSubmit = (array) => {
   if (array.length > 0) {
     answerSend.disabled = false;
   } else {
@@ -47,39 +37,32 @@ const toggleConditionAnswerSend = (array) => {
 };
 
 answerSend.disabled = true;
-
-// при повторном прохождении checkox  один горит уже, полагал, что этой
-// функцией смогу его сбросить, но нет.
-Array.prototype.forEach.call(genreInputs, (genreInputsItem) => {
-  if (genreInputsItem.checked) {
-    genreInputsItem.checked = false;
-  }
-});
+/**
+ * Event listener.
+ * @param {Event} event
+ */
 formGenre.addEventListener(`change`, (event) => {
   const checkedGenreInputs = [];
-  // вот тут можно было array.from, но не разобрался с синтаксисом
-  Array.prototype.forEach.call(genreInputs, (genreInputsItem) => {
+
+  Array.from(genreInputs).forEach((genreInputsItem) => {
     if (genreInputsItem.checked) {
       checkedGenreInputs.push(genreInputsItem);
     }
   });
 
-  // Array.from(genreInputs.forEach((genreInputsItem) => {
-  //   if (genreInputsItem.checked) {
-  //     checkedGenreInputs.push(genreInputsItem);
-  //   }
-  // }));
-
-  toggleConditionAnswerSend(checkedGenreInputs);
+  toggleSubmit(checkedGenreInputs);
 });
 
-const genreScreenLoad = () => {
-  service.renderScreen(genreScreen);
+const screenGenreLoad = () => {
+  serviceRender.renderScreen(screenGenre);
 };
-
+/**
+ * Event listener.
+ * @param {MouseEvent} event
+ */
 answerSend.addEventListener(`click`, (event) => {
   event.preventDefault();
-  resultCtr();
+  return Math.round(Math.random()) ? loadScreenResultWinner() : loadScreenResultLoser();
 });
 
-export default genreScreenLoad;
+export default screenGenreLoad;
