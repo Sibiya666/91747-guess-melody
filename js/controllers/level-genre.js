@@ -32,6 +32,19 @@ const toggleSubmit = (array) => {
   answerSend.disabled = !array.length > 0;
 };
 
+const screenGenreLoad = () => {
+  serviceRender.renderScreen(screenGenre);
+};
+
+const randomScreenResult = () => {
+  return Math.round(Math.random()) ? loadScreenResultWinner() : loadScreenResultLoser();
+};
+
+const resetScreenGenre = () => {
+  answerSend.disabled = true;
+  formGenre.reset();
+};
+
 answerSend.disabled = true;
 /**
  * Event listener.
@@ -49,16 +62,14 @@ formGenre.addEventListener(`change`, (event) => {
   toggleSubmit(checkedGenreInputs);
 });
 
-const screenGenreLoad = () => {
-  serviceRender.renderScreen(screenGenre);
-};
 /**
  * Event listener.
  * @param {MouseEvent} event
  */
 answerSend.addEventListener(`click`, (event) => {
   event.preventDefault();
-  return Math.round(Math.random()) ? loadScreenResultWinner() : loadScreenResultLoser();
+  resetScreenGenre();
+  randomScreenResult();
 });
 
 export default screenGenreLoad;
