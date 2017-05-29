@@ -14,13 +14,13 @@
 }
 
 .genre-answer-check {
-  background: url("../../../img/icon-note-inactive.png") no-repeat;
+  background: url("../img/icon-note-inactive.png") no-repeat;
   height: 49px;
   width: 35px;
 }
 
 input[type=checkbox]:checked + .genre-answer-check {
-  background-image: url("../../../img/icon-note-active.png");
+  background-image: url("../img/icon-note-active.png");
 }
 
 .genre-answer-send {
@@ -33,8 +33,15 @@ input[type=checkbox]:checked + .genre-answer-check {
   margin: 20px auto 0;
   padding: 0 20px;
   text-align: center;
+  cursor: pointer;
 }
-
+.genre-answer-send[disabled] {
+  opacity: 0.3;
+  &:hover {
+    color: $color-text-dark;
+    cursor: auto;
+  }
+}
 .genre-answer-send:hover {
   color: $color-orange;
 }
