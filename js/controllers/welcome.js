@@ -18,9 +18,10 @@ const play = screenWelcome.querySelector(`.main-play`);
 
 /**
  * Load screen Welcome.
- * @return {HTMLElement}
  */
-const loadScreenWelcome = () => serviceRender.renderScreen(screenWelcome);
+const loadScreenWelcome = () => {
+  serviceRender.renderScreen(screenWelcome);
+};
 
 /**
  * Event listener.

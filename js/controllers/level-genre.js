@@ -34,16 +34,20 @@ const toggleSubmit = (array) => {
 
 /**
  * Load screen Genre.
- * @return {HTMLElement}
  */
-const loadScreenGenre = () => serviceRender.renderScreen(screenGenre);
+const loadScreenGenre = () => {
+  serviceRender.renderScreen(screenGenre);
+};
 
 /**
  * Load random screen with result.
- * @return {HTMLElement}
  */
 const randomScreenResult = () => {
-  return Math.round(Math.random()) ? loadScreenResultWinner() : loadScreenResultLoser();
+  if (Math.round(Math.random())) {
+    loadScreenResultWinner();
+  } else {
+    loadScreenResultLoser();
+  }
 };
 
 /**

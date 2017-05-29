@@ -14,9 +14,10 @@ const screenLoser = serviceRender.createElement(template);
 const replay = screenLoser.querySelector(`.main-replay`);
 /**
  * Load screen loser.
- * @return {HTMLElement}
  */
-const loadScreenLoser = () => serviceRender.renderScreen(screenLoser);
+const loadScreenLoser = () => {
+  serviceRender.renderScreen(screenLoser);
+};
 
 /**
  * Event listener.

@@ -42,11 +42,13 @@ const template = `
     `;
 const screenArtists = serviceRender.createElement(template);
 const listAnswers = screenArtists.querySelector(`.main-list`);
+
 /**
  * Load screen Artists.
- * @return {HTMLElement}
  */
-const loadScreenArtists = () => serviceRender.renderScreen(screenArtists);
+const loadScreenArtists = () => {
+  serviceRender.renderScreen(screenArtists);
+};
 
 /**
  * Event listener.
