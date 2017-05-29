@@ -42,7 +42,12 @@ const template = `
     `;
 const screenArtists = serviceRender.createElement(template);
 const listAnswers = screenArtists.querySelector(`.main-list`);
-const loadArtistsScreen = () => serviceRender.renderScreen(screenArtists);
+/**
+ * Load screen Artists.
+ * @return {HTMLElement}
+ */
+const loadScreenArtists = () => serviceRender.renderScreen(screenArtists);
+
 /**
  * Event listener.
  * @param {MouseEvent} event
@@ -53,4 +58,4 @@ listAnswers.addEventListener(`click`, (event) => {
   }
 });
 
-export default loadArtistsScreen;
+export default loadScreenArtists;

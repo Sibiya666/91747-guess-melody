@@ -14,7 +14,12 @@ const template = `
     `;
 const screenWinner = serviceRender.createElement(template);
 const replay = screenWinner.querySelector(`.main-replay`);
+/**
+ * Load screen Winner.
+ * @return {HTMLElement}
+ */
 const loadScreenWinner = () => serviceRender.renderScreen(screenWinner);
+
 /**
  * Event listener.
  * @param {MouseEvent} event

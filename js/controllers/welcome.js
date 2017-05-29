@@ -15,6 +15,11 @@ const template = `
     `;
 const screenWelcome = serviceRender.createElement(template);
 const play = screenWelcome.querySelector(`.main-play`);
+
+/**
+ * Load screen Welcome.
+ * @return {HTMLElement}
+ */
 const loadScreenWelcome = () => serviceRender.renderScreen(screenWelcome);
 
 /**

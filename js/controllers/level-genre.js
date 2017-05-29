@@ -32,14 +32,23 @@ const toggleSubmit = (array) => {
   answerSend.disabled = !array.length > 0;
 };
 
-const screenGenreLoad = () => {
-  serviceRender.renderScreen(screenGenre);
-};
+/**
+ * Load screen Genre.
+ * @return {HTMLElement}
+ */
+const loadScreenGenre = () => serviceRender.renderScreen(screenGenre);
 
+/**
+ * Load random screen with result.
+ * @return {HTMLElement}
+ */
 const randomScreenResult = () => {
   return Math.round(Math.random()) ? loadScreenResultWinner() : loadScreenResultLoser();
 };
 
+/**
+ * Reset form and reset button.
+ */
 const resetScreenGenre = () => {
   answerSend.disabled = true;
   formGenre.reset();
@@ -72,4 +81,4 @@ answerSend.addEventListener(`click`, (event) => {
   randomScreenResult();
 });
 
-export default screenGenreLoad;
+export default loadScreenGenre;
