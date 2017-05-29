@@ -15,7 +15,7 @@ const template = `
                   <div class="player-wrapper"></div>
                   <input type="checkbox" name="answer" value="answer-${item}" id="a-${item}">
                   <label class="genre-answer-check" for="a-${item}"></label>
-                </div>`)}
+                </div>`).join(``)}
 
                 <button class="genre-answer-send" type="submit">Ответить</button>
               </form>

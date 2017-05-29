@@ -34,7 +34,7 @@ const template = `
               <img class="main-answer-preview" src="">
               ${listArtistsItem}
             </label>
-          </div>`)}
+          </div>`).join(``)}
         
       </form>
     </div>
@@ -48,7 +48,7 @@ const loadArtistsScreen = () => serviceRender.renderScreen(screenArtists);
  * @param {MouseEvent} event
  */
 listAnswers.addEventListener(`click`, (event) => {
-  if (event.target.classList.contains(`main-answer`)) {
+  if (event.target.classList.contains(`main-answer-r`)) {
     loadScreenGenre();
   }
 });
