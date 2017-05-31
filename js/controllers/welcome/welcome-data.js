@@ -5,5 +5,4 @@ const data = {
     Удачи!`
 };
 
-
 export default data;
