@@ -1,9 +1,20 @@
+import serviceRender from './service/service-render';
+
 const updateState = (element, player) => {
   element.querySelector(`.player-status`).style.width =
       `${parseInt(player.currentTime * 100 / player.duration, 10)}%`;
 };
 
-
+const templatePlayer = `
+  <div class="player">
+    <audio></audio>
+    <button class="player-control">Play</button>
+    <div class="player-track">
+      <span class="player-status"></span>
+    </div>
+  </div>
+`;
+const elem = serviceRender.createElement(templatePlayer);
 const syncState = (player, element) => {
   element.classList.toggle(`player--is-playing`, !player.paused);
 };
@@ -42,29 +53,28 @@ const destroyPlayer = (element, state) => {
 };
 
 
-window.initializePlayer = (element, file, autoplay = false, controllable = true) => {
+const initializePlayer = (element, file, autoplay = false, controllable = true) => {
   let state = {};
 
-  const content = document.querySelector(`template`)
-    .content
-    .querySelector(`.player`)
-    .cloneNode(true);
-  const player = content.querySelector(`audio`);
-  const button = content.querySelector(`button`);
+
+  const player = elem.querySelector(`audio`);
+  const button = elem.querySelector(`button`);
 
   player.onloadeddata = () => {
     if (controllable) {
-      button.onclick = () => switchState(state, player, content);
+      button.onclick = () => switchState(state, player, elem);
     }
 
     if (autoplay) {
-      switchState(state, player, content);
+      switchState(state, player, elem);
     }
   };
 
   player.src = file;
-  element.appendChild(content);
+  element.appendChild(elem);
   element.classList.toggle(`player--no-controls`, !controllable);
 
   return () => destroyPlayer(element, state);
 };
+
+export default initializePlayer;

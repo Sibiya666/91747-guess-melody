@@ -1,28 +1,50 @@
 import serviceRender from '../service/service-render';
 import loadScreenResultLoser from './result-loser';
+import initializePlayer from '../player';
 import loadScreenResultWinner from './result-winner';
-/**
- * @type Array<number>
- */
-const listGenres = [1, 2, 3, 4];
+
+const listGenres = {
+  genre1: {
+    genreId: `1`,
+    genreSong: ``,
+  },
+  genre2: {
+    genreId: `2`,
+    genreSong: ``,
+  },
+  genre3: {
+    genreId: `3`,
+    genreSong: ``,
+  },
+  genre4: {
+    genreId: `4`,
+    genreSong: ``,
+  }
+};
+
+const templateGenre = (genre) =>
+  `
+  <div class="genre-answer">
+    <div class="player-wrapper">        
+    </div>
+    <input type="checkbox" name="answer" value="answer-${listGenres[genre].genreId}" id="a-${listGenres[genre].genreId}">
+    <label class="genre-answer-check" for="a-${listGenres[genre].genreId}"></label>
+  </div>
+<!--initializePlayer(player, listGenres[genre].genreSong, false) -->
+`;
+
 const template = `
           <section class="main main--level main--level-genre">
               <h2 class="title">Выберите инди-рок треки</h2>
               <form class="genre">
-                          
-                ${listGenres.map((item) => `
-                 <div class="genre-answer">
-                  <div class="player-wrapper"></div>
-                  <input type="checkbox" name="answer" value="answer-${item}" id="a-${item}">
-                  <label class="genre-answer-check" for="a-${item}"></label>
-                </div>`).join(``)}
-
+                ${Object.keys(listGenres).map((listGenresItem) => templateGenre(listGenresItem)).join(``)}
                 <button class="genre-answer-send" type="submit">Ответить</button>
               </form>
-        </section>
+          </section>
     `;
 const screenGenre = serviceRender.createElement(template);
 const formGenre = screenGenre.querySelector(`.genre`);
+// const player = screenGenre.querySelector(`player-wrapper`);
 const genreInputs = formGenre.querySelectorAll(`input[type="checkbox"]`);
 const answerSend = screenGenre.querySelector(`.genre-answer-send`);
 /**
