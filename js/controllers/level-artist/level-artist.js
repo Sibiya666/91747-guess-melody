@@ -3,7 +3,8 @@ import initializePlayer from '../../player';
 import loadScreenGenre from '../level-genre/level-genre';
 import data from './level-artist-data';
 
-const templateArtist = (artist) => `
+const artistTemplate = (artist) => `
+<section class="main main--answer">
     <div class="main-answer-wrapper">
       <input class="main-answer-r" type="radio" id="answer-${data[artist].artistId}" name="answer" 
                                                 value="val-${data[artist].artistId}" />
@@ -31,7 +32,7 @@ const template = `
       <h2 class="title main-title">Кто исполняет эту песню?</h2>
       <div class="player-wrapper"></div>
       <form class="main-list">
-        ${Object.keys(data).map((dataItem) => templateArtist(dataItem)).join(``)}
+        ${Object.keys(data).map((dataItem) => artistTemplate(dataItem)).join(``)}
       </form>
     </div>
   </section>

@@ -22,7 +22,7 @@ const listGenres = {
   }
 };
 
-const templateGenre = (genre) =>
+const genreTemplate = (genre) =>
   `
   <div class="genre-answer">
     <div class="player-wrapper" data-id="${listGenres[genre].genreId}">        
@@ -35,7 +35,7 @@ const template = `
           <section class="main main--level main--level-genre">
               <h2 class="title">Выберите инди-рок треки</h2>
               <form class="genre">
-                ${Object.keys(listGenres).map((listGenresItem) => templateGenre(listGenresItem)).join(``)}
+                ${Object.keys(listGenres).map((listGenresItem) => genreTemplate(listGenresItem)).join(``)}
                 <button class="genre-answer-send" type="submit">Ответить</button>
               </form>
           </section>
