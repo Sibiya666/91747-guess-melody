@@ -1,37 +1,35 @@
-import serviceRender from '../service/service-render';
-import loadScreenResultLoser from './result-loser';
-import initializePlayer from '../player';
-import loadScreenResultWinner from './result-winner';
+import serviceRender from '../../service/service-render';
+import loadScreenResultLoser from '../result-loser/result-loser';
+import initializePlayer from '../../player';
+import loadScreenResultWinner from '../result-winner/result-winner';
 
 const listGenres = {
   genre1: {
     genreId: `1`,
-    genreSong: ``,
+    genreSong: `./music/Grassy_Hill.mp3`,
   },
   genre2: {
     genreId: `2`,
-    genreSong: ``,
+    genreSong: `./music/Grassy_Hill.mp3`,
   },
   genre3: {
     genreId: `3`,
-    genreSong: ``,
+    genreSong: `./music/Grassy_Hill.mp3`,
   },
   genre4: {
     genreId: `4`,
-    genreSong: ``,
+    genreSong: `./music/Grassy_Hill.mp3`,
   }
 };
 
 const templateGenre = (genre) =>
   `
   <div class="genre-answer">
-    <div class="player-wrapper">        
+    <div class="player-wrapper" data-id="${listGenres[genre].genreId}">        
     </div>
     <input type="checkbox" name="answer" value="answer-${listGenres[genre].genreId}" id="a-${listGenres[genre].genreId}">
     <label class="genre-answer-check" for="a-${listGenres[genre].genreId}"></label>
-  </div>
-<!--initializePlayer(player, listGenres[genre].genreSong, false) -->
-`;
+  </div>`;
 
 const template = `
           <section class="main main--level main--level-genre">
@@ -107,4 +105,8 @@ answerSend.addEventListener(`click`, (event) => {
   randomScreenResult();
 });
 
+initializePlayer(screenGenre.querySelector(`[data-id='1']`), listGenres.genre1.genreSong, false);
+initializePlayer(screenGenre.querySelector(`[data-id='2']`), listGenres.genre2.genreSong, false);
+initializePlayer(screenGenre.querySelector(`[data-id='3']`), listGenres.genre3.genreSong, false);
+initializePlayer(screenGenre.querySelector(`[data-id='4']`), listGenres.genre3.genreSong, false);
 export default loadScreenGenre;

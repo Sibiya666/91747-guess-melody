@@ -1,5 +1,5 @@
-import serviceRender from '../service/service-render';
-import loadScreenWelcome from './welcome';
+import serviceRender from '../../service/service-render';
+import loadScreenWelcome from '../welcome/welcome';
 
 const template = `        
   <section class="main main--result">

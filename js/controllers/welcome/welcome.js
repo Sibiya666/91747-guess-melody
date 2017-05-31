@@ -1,15 +1,14 @@
-import serviceRender from '../service/service-render';
-import loadArtistScreen from './level-artist';
+import serviceRender from '../../service/service-render';
+import loadArtistScreen from '../level-artist/level-artist';
+import data from './welcome-data';
 
 const template = `
   <section class="main main--welcome">
     <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
     <button class="main-play">Начать игру</button>
-    <h2 class="title main-title">Правила игры</h2>
+    <h2 class="title main-title">${data.title}</h2>
     <p class="text main-text">
-    Правила просты — за 2 минуты дать
-    максимальное количество правильных ответов.<br>
-    Удачи!
+      ${data.text}
     </p>
   </section>
     `;
