@@ -5,7 +5,7 @@ const updateState = (element, player) => {
       `${parseInt(player.currentTime * 100 / player.duration, 10)}%`;
 };
 
-const templatePlayer = `
+const playerTemplate = `
   <div class="player">
     <audio></audio>
     <button class="player-control">Play</button>
@@ -14,7 +14,7 @@ const templatePlayer = `
     </div>
   </div>
 `;
-const elem = serviceRender.createElement(templatePlayer);
+const elem = serviceRender.createElement(playerTemplate);
 const syncState = (player, element) => {
   element.classList.toggle(`player--is-playing`, !player.paused);
 };

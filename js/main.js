@@ -1,4 +1,3 @@
-import loadScreenWelcome from './controllers/welcome/welcome';
+import changeState from './service/router';
 
-loadScreenWelcome();
-
+changeState(`artist-screen`);
