@@ -3,7 +3,7 @@ import changeState from '../../service/router';
 import data from './result-data';
 import template from './result-template';
 
-const screenResult = () => serviceRender.createElement(template(data));
+const screenResult = serviceRender.createElement(template(data));
 const replay = screenResult.querySelector(`.main-replay`);
 
 /**
@@ -12,7 +12,7 @@ const replay = screenResult.querySelector(`.main-replay`);
  */
 replay.addEventListener(`click`, (event) => {
   event.preventDefault();
-  changeState();
+  changeState(`welcome-screen`);
 });
 
 export default screenResult;
