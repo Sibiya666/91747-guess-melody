@@ -1,23 +1,14 @@
-import serviceRender from './service/service-render';
+import template from './player-template';
+import serviceRender from '../../service/service-render';
 
 const updateState = (element, player) => {
   element.querySelector(`.player-status`).style.width =
-      `${parseInt(player.currentTime * 100 / player.duration, 10)}%`;
+    `${parseInt(player.currentTime * 100 / player.duration, 10)}%`;
 };
 
-const playerTemplate = `
-  <div class="player">
-    <audio></audio>
-    <button class="player-control">Play</button>
-    <div class="player-track">
-      <span class="player-status"></span>
-    </div>
-  </div>`;
-const elem = serviceRender.createElement(playerTemplate);
 const syncState = (player, element) => {
   element.classList.toggle(`player--is-playing`, !player.paused);
 };
-
 
 const switchState = (state, player, element) => {
   if (player.paused) {
@@ -33,7 +24,6 @@ const switchState = (state, player, element) => {
 
   syncState(player, element);
 };
-
 
 const destroyPlayer = (element, state) => {
   const player = element.querySelector(`audio`);
@@ -51,26 +41,26 @@ const destroyPlayer = (element, state) => {
   return true;
 };
 
-
 const initializePlayer = (element, file, autoplay = false, controllable = true) => {
   let state = {};
-
-
-  const player = elem.querySelector(`audio`);
-  const button = elem.querySelector(`button`);
+  const content = serviceRender.createElement(template())
+    .querySelector(`.player`)
+    .cloneNode(true);
+  const player = content.querySelector(`audio`);
+  const button = content.querySelector(`button`);
 
   player.onloadeddata = () => {
     if (controllable) {
-      button.onclick = () => switchState(state, player, elem);
+      button.onclick = () => switchState(state, player, content);
     }
 
     if (autoplay) {
-      switchState(state, player, elem);
+      switchState(state, player, content);
     }
   };
 
   player.src = file;
-  element.appendChild(elem);
+  element.appendChild(content);
   element.classList.toggle(`player--no-controls`, !controllable);
 
   return () => destroyPlayer(element, state);

@@ -1,5 +1,5 @@
 import serviceRender from '../../service/service-render';
-import initializePlayer from '../../player';
+import initializePlayer from '../player/player';
 import changeState from '../../service/router';
 import data from './level-genre-data';
 import template from './level-genre-template';
@@ -62,6 +62,6 @@ const getScreen = () => {
   initializePlayer(screenGenre.querySelector(`[data-id='3']`), data.genre3.genreSong, false);
   initializePlayer(screenGenre.querySelector(`[data-id='4']`), data.genre3.genreSong, false);
   return screenGenre;
-}
+};
 
 export default getScreen;

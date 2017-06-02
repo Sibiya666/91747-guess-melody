@@ -33,7 +33,7 @@ const getScreen = () => {
   });
 
   return screenResult;
-}
+};
 
 
 export default getScreen;
