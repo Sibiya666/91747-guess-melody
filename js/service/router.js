@@ -20,7 +20,7 @@ const LIST_STATE = {
  * @param {string} state
  * */
 const changeState = (state) => {
-  serviceRender.renderScreen(LIST_STATE[state]);
+  serviceRender.renderScreen(LIST_STATE[state]());
 };
 
 export default changeState;

@@ -12,8 +12,7 @@ const playerTemplate = `
     <div class="player-track">
       <span class="player-status"></span>
     </div>
-  </div>
-`;
+  </div>`;
 const elem = serviceRender.createElement(playerTemplate);
 const syncState = (player, element) => {
   element.classList.toggle(`player--is-playing`, !player.paused);

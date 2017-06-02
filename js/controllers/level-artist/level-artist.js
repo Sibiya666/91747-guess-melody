@@ -4,19 +4,27 @@ import changeState from '../../service/router';
 import data from './level-artist-data';
 import template from './level-artist-template';
 
-const screenArtists = serviceRender.createElement(template(data));
-const listAnswers = screenArtists.querySelector(`.main-list`);
-const player = screenArtists.querySelector(`.player-wrapper`);
-
 /**
- * Event listener.
- * @param {MouseEvent} event
+ * Get Screen of game.
+ * @return {HTMLElement}
  */
-listAnswers.addEventListener(`click`, (event) => {
-  if (event.target.classList.contains(`main-answer-r`)) {
-    changeState(`genre-screen`);
-  }
-});
+const getScreen = () => {
+  const screenArtists = serviceRender.createElement(template(data));
+  const listAnswers = screenArtists.querySelector(`.main-list`);
+  const player = screenArtists.querySelector(`.player-wrapper`);
 
-initializePlayer(player, data.atist1.artistSong, false, true);
-export default screenArtists;
+  /**
+   * Event listener.
+   * @param {MouseEvent} event
+   */
+  listAnswers.addEventListener(`click`, (event) => {
+    if (event.target.classList.contains(`main-answer-r`)) {
+      changeState(`genre-screen`);
+    }
+  });
+
+  initializePlayer(player, data.atist1.artistSong, false, true);
+  return screenArtists;
+}
+
+export default getScreen;
