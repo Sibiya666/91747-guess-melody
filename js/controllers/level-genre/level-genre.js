@@ -8,23 +8,13 @@ const screenGenre = serviceRender.createElement(template(data));
 const formGenre = screenGenre.querySelector(`.genre`);
 const genreInputs = formGenre.querySelectorAll(`input[type="checkbox"]`);
 const answerSend = screenGenre.querySelector(`.genre-answer-send`);
+
 /**
  * @param {Array<number>} array
  */
 const toggleSubmit = (array) => {
   answerSend.disabled = !array.length > 0;
 };
-
-/**
- * Load random screen with result.
- */
-// const randomResult = () => {
-//   if (Math.round(Math.random())) {
-//     changeState(`result-loser`);
-//   } else {
-//     changeState(`result-winner`);
-//   }
-// };
 
 /**
  * Reset form and reset button.
@@ -35,6 +25,7 @@ const resetScreenGenre = () => {
 };
 
 answerSend.disabled = true;
+
 /**
  * Event listener.
  * @param {Event} event
@@ -58,7 +49,6 @@ formGenre.addEventListener(`change`, (event) => {
 answerSend.addEventListener(`click`, (event) => {
   event.preventDefault();
   resetScreenGenre();
-  // randomResult();
   changeState(`result`);
 });
 

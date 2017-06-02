@@ -1,4 +1,8 @@
-const data = {
+/**
+ * @constant
+ * @enum {Object}
+ */
+const DATA = {
   atist1: {
     artistId: `1`,
     artistName: `Твоя Мама`,
@@ -18,4 +22,5 @@ const data = {
     artistSong: ``,
   }
 };
-export default data;
+
+export default DATA;

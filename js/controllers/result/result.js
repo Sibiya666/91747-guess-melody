@@ -3,7 +3,19 @@ import changeState from '../../service/router';
 import data from './result-data';
 import template from './result-template';
 
-const screenResult = serviceRender.createElement(template(data));
+/**
+ * Get random result.
+ * @return {string}
+ */
+const getRandomResult = () => {
+  if (Math.round(Math.random())) {
+    return `winner`;
+  } else {
+    return `loser`;
+  }
+};
+
+const screenResult = serviceRender.createElement(template(data[getRandomResult()]));
 const replay = screenResult.querySelector(`.main-replay`);
 
 /**

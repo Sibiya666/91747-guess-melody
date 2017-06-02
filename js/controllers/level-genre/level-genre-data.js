@@ -1,4 +1,8 @@
-const data = {
+/**
+ * @constant
+ * @enum {Object}
+ */
+const DATA = {
   genre1: {
     genreId: `1`,
     genreSong: `./music/Grassy_Hill.mp3`,
@@ -17,4 +21,4 @@ const data = {
   }
 };
 
-export default data;
+export default DATA;
