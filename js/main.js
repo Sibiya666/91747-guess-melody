@@ -1,4 +1,3 @@
-import loadScreenWelcome from './controllers/welcome';
+import changeState from './service/service-router';
 
-loadScreenWelcome();
-
+changeState(`welcome-screen`);

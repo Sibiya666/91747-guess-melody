@@ -58,7 +58,6 @@ gulp.task('imagemin', ['copy'], function () {
     .pipe(gulp.dest('build/img'));
 });
 
-
 gulp.task('copy-html', function () {
   return gulp.src('*.html')
     .pipe(gulp.dest('build'))
@@ -68,7 +67,8 @@ gulp.task('copy-html', function () {
 gulp.task('copy', ['copy-html', 'scripts', 'style'], function () {
   return gulp.src([
     'fonts/**/*.{woff,woff2}',
-    'img/*.*'
+    'img/*.*',
+    'music/*.*'
   ], {base: '.'})
     .pipe(gulp.dest('build'));
 });
