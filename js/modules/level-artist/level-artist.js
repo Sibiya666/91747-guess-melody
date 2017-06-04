@@ -1,6 +1,6 @@
 import serviceRender from '../../service/service-render';
 import initializePlayer from '../player/player';
-import changeState from '../../service/router';
+import changeState from '../../service/service-router';
 import data from './level-artist-data';
 import template from './level-artist-template';
 
@@ -23,7 +23,7 @@ const getScreen = () => {
     }
   });
 
-  initializePlayer(player, data.atist1.artistSong, false, true)
+  initializePlayer(player, data.atist1.artistSong, false, true);
   return screenArtists;
 };
 

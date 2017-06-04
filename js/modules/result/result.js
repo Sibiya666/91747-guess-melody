@@ -1,5 +1,5 @@
 import serviceRender from '../../service/service-render';
-import changeState from '../../service/router';
+import changeState from '../../service/service-router';
 import data from './result-data';
 import template from './result-template';
 

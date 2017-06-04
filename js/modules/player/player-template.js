@@ -6,7 +6,7 @@ const template = () => `
    <div class="conteiner">
       <div class="player">
         <audio></audio>
-        <button class="player-control">Play</button>
+        <button class="player-control" type="button">Play</button>
         <div class="player-track">
           <span class="player-status"></span>
         </div>

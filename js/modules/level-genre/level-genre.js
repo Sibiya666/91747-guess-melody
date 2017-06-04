@@ -1,6 +1,6 @@
 import serviceRender from '../../service/service-render';
 import initializePlayer from '../player/player';
-import changeState from '../../service/router';
+import changeState from '../../service/service-router';
 import data from './level-genre-data';
 import template from './level-genre-template';
 

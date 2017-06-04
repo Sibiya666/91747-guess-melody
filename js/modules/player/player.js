@@ -1,6 +1,6 @@
 import template from './player-template';
 import serviceRender from '../../service/service-render';
-
+import animationService from '../../service/service-animate';
 const updateState = (element, player) => {
   element.querySelector(`.player-status`).style.width =
     `${parseInt(player.currentTime * 100 / player.duration, 10)}%`;
@@ -13,8 +13,8 @@ const syncState = (player, element) => {
 const switchState = (state, player, element) => {
   if (player.paused) {
     player.play();
-    state.stopAnimation = window.animation.animate(
-        window.animation.getAnimation(player.currentTime, 1000, player.duration),
+    state.stopAnimation = animationService.animate(
+      animationService.getAnimation(player.currentTime, 1000, player.duration),
         (animation) => updateState(element, player));
   } else {
     player.pause();
