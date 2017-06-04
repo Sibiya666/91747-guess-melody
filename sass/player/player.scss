@@ -1,16 +1,14 @@
 .player-wrapper {
-  position: relative;
   animation: fadein 1000ms ease-out;
   animation-iteration-count: 1;
-  background: url("../img/player-background.png") no-repeat 0 100%;
-  background-size: cover;
   margin-right: 20px;
+}
 
 
+.player {
+  position: relative;
 }
-.player--no-controls .player-track {
-  left: 0;
-}
+
 
 .player-track {
   background: url("../img/player-background.png") no-repeat 0 100%;
@@ -22,6 +20,12 @@
   top: 0;
 }
 
+
+.player--no-controls .player-track {
+  left: 0;
+}
+
+
 .player-status {
   background: rgba(0, 0, 0, 0.3);
   bottom: 0;
@@ -32,22 +36,15 @@
 
 
 .player-control {
-  position: absolute;
-  height: 0;
-  margin: auto;
-  margin-left: 0;
-  top: 0px;
-  left: -65px;
-  border-width: 30px 0 30px 50px;
-  border-color: transparent;
-  border-left-color: #ff9749;
-  border-style: solid;
+  background: url("../img/icon-player-controls-sprite.png") no-repeat 0 0;
+  border: 0;
+  text-indent: -100em;
+  height: 53px;
+  width: 39px;
   font-size: 0;
-  background: transparent;
-  &_singl {
-
-  }
 }
+
+
 .player--is-playing .player-control {
   background-position: 0 -53px;
 }
@@ -55,6 +52,8 @@
 .player--no-controls .player-control {
   display: none;
 }
+
+
 @keyframes fadein {
   0% { opacity: 0 }
   100% { opacity: 1 }
