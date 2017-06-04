@@ -14,7 +14,7 @@ const switchState = (state, player, element) => {
   if (player.paused) {
     player.play();
     state.stopAnimation = animationService.animate(
-      animationService.getAnimation(player.currentTime, 1000, player.duration),
+        animationService.getAnimation(player.currentTime, 1000, player.duration),
         (animation) => updateState(element, player));
   } else {
     player.pause();

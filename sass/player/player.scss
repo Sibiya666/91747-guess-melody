@@ -8,6 +8,29 @@
 
 
 }
+.player--no-controls .player-track {
+  left: 0;
+}
+
+.player-track {
+  background: url("../img/player-background.png") no-repeat 0 100%;
+  background-size: cover;
+  height: 53px;
+  left: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.player-status {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+
 .player-control {
   position: absolute;
   height: 0;
@@ -24,6 +47,13 @@
   &_singl {
 
   }
+}
+.player--is-playing .player-control {
+  background-position: 0 -53px;
+}
+
+.player--no-controls .player-control {
+  display: none;
 }
 @keyframes fadein {
   0% { opacity: 0 }
