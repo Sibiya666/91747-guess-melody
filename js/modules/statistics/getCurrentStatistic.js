@@ -24,6 +24,6 @@ const getCurrentStatistic = (oldListResults, listResultplayer) => {
   };
 
   return currentStatistic;
-}
+};
 
 export default getCurrentStatistic;
