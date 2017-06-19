@@ -1,11 +1,21 @@
-import getCurrentStatistic from '../../modules/statistics/statistics';
-import statisticsData from './statistics-cacher-data';
+import getSt from './getCurrentStatistic';
+import data from './statistics-data';
 import assert from 'assert';
 
-describe(`,kf-,kif`, () =>{
-
-  it(`gfe-gfe`, () => {
-    assert.equal((getCurrentStatistic(statisticsData, {time: 19, answers: 9})), {statics: Array(6), percentage: 33});
+const st = {time: 19, answers: 9};
+describe(`getSt`, () => {
+  it(`пау`, () => {
+    assert.equal({
+      statics: [
+        {time: 18, answers: 10},
+        {time: 32, answers: 10},
+        {time: 44, answers: 10},
+        {time: 19, answers: 9},
+        {time: 20, answers: 8},
+        {time: 50, answers: 7}
+      ],
+      percentage: 33
+    }, getSt(data, st));
   });
-
 });
+
