@@ -2,8 +2,8 @@ import getCurrentStatistic from './get-current-tatistic';
 import data from './statistics-cacher-data';
 import assert from 'assert';
 
-describe(`getSt`, () => {
-  it(`пау`, () => {
+describe(`getCurrentStatistic`, () => {
+  it(`comparison`, () => {
     assert.deepEqual({
       statics: [
         {time: 18, answers: 10},
