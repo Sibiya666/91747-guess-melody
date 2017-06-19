@@ -2,8 +2,8 @@ import data from './welcome-data';
 import template from './welcome-template';
 import serviceRender from '../../service/service-render';
 import changeState from '../../service/service-router';
-import getCurrentStatistic from '../../modules/statistics/statistics';
-import statistics from '../../modules/statistics/statistics-data';
+// import getCurrentStatistic from '../../modules/statistics/statistics';
+// import statisticsData from '../statistics/statistics-cacher-data';
 /**
  * Get Screen of game.
  * @return {HTMLElement}
@@ -18,6 +18,6 @@ const getScreen = () => {
 /**
  *тут можно  посмотреть как работает функция
  */
-console.log(getCurrentStatistic(statistics, {time: 19, answers: 9}));
+// console.log(getCurrentStatistic(statisticsData, {time: 19, answers: 9}));
 
 export default getScreen;
