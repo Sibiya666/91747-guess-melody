@@ -13,12 +13,12 @@ const getScreen = () => {
   const formGenre = screenGenre.querySelector(`.genre`);
   const genreInputs = formGenre.querySelectorAll(`input[type="checkbox"]`);
   const answerSend = screenGenre.querySelector(`.genre-answer-send`);
-
+  const RIGHT_ANSWERS = 3;
   /**
-   * @param {Array<number>} array
+   * @param {number} number
    */
-  const toggleSubmit = (array) => {
-    answerSend.disabled = !array.length > 0;
+  const toggleSubmit = (number) => {
+    answerSend.disabled = !number > RIGHT_ANSWERS;
   };
 
   /**
@@ -36,11 +36,11 @@ const getScreen = () => {
    * @param {Event} event
    */
   formGenre.addEventListener(`change`, (event) => {
-    const checkedGenreInputs = [];
+    let checkedGenreInputs = 0;
 
     Array.from(genreInputs).forEach((genreInputsItem) => {
       if (genreInputsItem.checked) {
-        checkedGenreInputs.push(genreInputsItem);
+        checkedGenreInputs++;
       }
     });
 
