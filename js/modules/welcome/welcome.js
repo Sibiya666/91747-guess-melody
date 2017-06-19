@@ -3,6 +3,7 @@ import template from './welcome-template';
 import serviceRender from '../../service/service-render';
 import changeState from '../../service/service-router';
 
+
 /**
  * Get Screen of game.
  * @return {HTMLElement}

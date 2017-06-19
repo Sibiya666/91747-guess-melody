@@ -1,11 +1,22 @@
-import getCurrentStatistic from './getCurrentStatistic';
+import getSt from './getCurrentStatistic';
 import data from './statistics-data';
 import assert from 'assert';
-
-const testStatistics = {time: 19, answers: 9};
+//
+// {percentage: 33,
+//  statics: [
+//     {answers: 10, time: 18},
+//     {answers: 10, time: 32},
+//     {answers: 10, time: 44},
+//     {answers: 9,time: 19},
+//   { answers:8,time: 20},
+//   {answers: 7, time 50}
+// ]
+// }
+//
+const st = {time: 19, answers: 9};
 describe(`getSt`, () => {
   it(`пау`, () => {
-    assert.deepEqual({
+    assert.equal({
       statics: [
         {time: 18, answers: 10},
         {time: 32, answers: 10},
@@ -15,7 +26,7 @@ describe(`getSt`, () => {
         {time: 50, answers: 7}
       ],
       percentage: 33
-    }, getCurrentStatistic(data, testStatistics));
+    }, getSt(data, st));
   });
 });
 

@@ -5,7 +5,7 @@ import result from '../modules/result/result';
 import serviceRender from './service-render';
 
 /**
- * @readonly
+ * @constant
  * @type Object<HTMLElement>
  * */
 const LIST_STATE = {
