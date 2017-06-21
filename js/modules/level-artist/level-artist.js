@@ -1,5 +1,5 @@
 import serviceRender from '../../service/service-render';
-import initializeCountdown from '../../service/service-timer';
+import initializeCountdown from '../timer/timer';
 import initializePlayer from '../player/player';
 import changeState from '../../service/service-router';
 import data from './level-artist-data';

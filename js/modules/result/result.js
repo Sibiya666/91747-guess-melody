@@ -22,7 +22,7 @@ const getScreen = () => {
 
   const screenResult = serviceRender.createElement(template(data[getRandomResult()]));
   const replay = screenResult.querySelector(`.main-replay`);
-
+  document.querySelector(`.timer-container`).style.display = `none`;
   /**
    * Event listener.
    * @param {MouseEvent} event
